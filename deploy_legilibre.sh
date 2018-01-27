@@ -2,7 +2,7 @@
 
 # Add red PS1 for root
 echo >> /root/.bashrc
-echo -E 'export PS1='\''${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[01;37m\] \t \[\033[1;34m\]\w \$\[\033[00m\] '\' >> /root/.bashrc
+echo 'export PS1='\''${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[01;37m\] \t \[\033[1;34m\]\w \$\[\033[00m\] '\' >> /root/.bashrc
 
 # Unused directory?
 rmdir init.disabled
