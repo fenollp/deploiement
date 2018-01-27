@@ -11,6 +11,7 @@ rmdir init.disabled
 echo '\nen_US.UTF-8\nfr_FR.UTF-8\n' >> /etc/locale.gen
 locale-gen --purge
 echo 'LANG=C.UTF-8\n' > /etc/default/locale
+export LANG=C.UTF-8
 
 # Update and install some packages
 apt-get update
