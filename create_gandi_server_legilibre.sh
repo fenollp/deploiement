@@ -15,4 +15,4 @@ if [ -n "$sshkey" ]; then
 	arg_sshkey="--sshkey `echo $sshkey|grep -m 1 name|awk '{print $3}'`"
 fi
 
-gandi vm create --datacenter 'FR-SD5' --cores 2 --memory 4096 --ip-version 4 --size '10G' --image 'Debian 9' --run 'cd /root && wget https://raw.githubusercontent.com/Legilibre/deploiement/master/deploy_legilibre.sh && chmod +x deploy_legilibre.sh && ./deploy_legilibre.sh' --login $USER $arg_sshkey --ssh
+gandi vm create --datacenter 'FR-SD5' --cores 2 --memory 4096 --ip-version 4 --size '15G' --image 'Debian 9' --run 'cd /root && wget https://raw.githubusercontent.com/Legilibre/deploiement/master/deploy_legilibre.sh && chmod +x deploy_legilibre.sh && ./deploy_legilibre.sh' --login $USER $arg_sshkey --ssh
