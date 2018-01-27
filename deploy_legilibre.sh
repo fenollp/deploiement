@@ -8,14 +8,15 @@ echo 'export PS1='\''${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\03
 rmdir init.disabled
 
 # Avoid locale warning
-echo -e '\nen_US.UTF-8\nfr_FR.UTF-8\n' >> /etc/locale.gen
+echo '\nen_US.UTF-8\nfr_FR.UTF-8\n' >> /etc/locale.gen
 locale-gen --purge
-echo -e 'LANG=C.UTF-8\n' > /etc/default/locale
+echo 'LANG=C.UTF-8\n' > /etc/default/locale
 
 # Update and install some packages
 apt-get update
 apt-get dist-upgrade
 apt-get install -y libarchive13 python-pip git htop sqlite3
+apt-get install -y python2.7-dev libxml2-dev libxslt1-dev python-setuptools python-wheel
 
 # If data disk, use it
 location=/root
@@ -35,11 +36,16 @@ cd $location/legilibre
 # Create directories
 mkdir -p code tarballs sqlite
 
-# Copy code
+# Copy code for legi.py and Archéo Lex
 cd code
 git clone https://github.com/Legilibre/legi.py.git
+git clone https://github.com/Legilibre/Archeo-Lex.git
 cd legi.py
 pip install -r requirements.txt
+cd ../Archeo-Lex
+pip install -r requirements.txt
+
+cd ../legi.py
 
 # Install cron
 # TBD

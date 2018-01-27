@@ -25,6 +25,7 @@ Procédure liminaire :
    a. crée une VM chez Gandi (environ 1 minute),
    b. te connecte à cette VM (mais tu n’as rien à y faire réellement à part regarder le calcul avec htop),
    c. installe legi.py qui télécharge la base LEGI (codes et lois français) et crée sa base de données SQLite (compter plusieurs heures)
+   d. installe Archéo Lex (pour l’instant sans l’exécuter)
 
 Procédure post-liminaire :
 3. Faire une pull request pour ajouter le cron (systemd) dans le script `deploy_legilibre.sh`
