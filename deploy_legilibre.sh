@@ -14,7 +14,8 @@ echo -e 'LANG=C.UTF-8\n' > /etc/default/locale
 
 # Update and install some packages
 apt-get update
-apt-get install -y libarchive13 python-pip git htop
+apt-get dist-upgrade
+apt-get install -y libarchive13 python-pip git htop sqlite3
 
 # If data disk, use it
 location=/root
