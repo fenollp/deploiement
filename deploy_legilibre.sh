@@ -35,7 +35,7 @@ mkdir -p $location/legilibre
 cd $location/legilibre
 
 # Create directories
-mkdir -p code tarballs sqlite
+mkdir -p code tarballs sqlite textes cache
 
 # Copy code for legi.py and Archéo Lex
 cd code
@@ -45,6 +45,9 @@ cd legi.py
 pip install -r requirements.txt
 cd ../Archeo-Lex
 pip install -r requirements.txt
+
+
+### legi.py
 
 cd ../legi.py
 
@@ -56,6 +59,16 @@ python -m legi.download ../../tarballs
 
 # Compute database
 python -m legi.tar2sqlite ../../sqlite/legi.sqlite ../../tarballs
+
+
+### Archéo Lex
+
+cd ../Archeo-Lex
+
+# Launch Archéo Lex on 3000 random texts
+
+./archeo-lex --textes=aleatoire-3000 --bddlegi=../../sqlite/legi.sqlite --dossier=../../textes --cache=../../cache
+
 
 # Tidy
 rm -f /root/deploy_legilibre.sh
