@@ -13,7 +13,7 @@ run: /tmp/apt out/legi.py.git out/Archeo-Lex.git out/tarballs out/db out/textes 
 	  -v "$$PWD"/out/textes:/app/textes \
 	  -v "$$PWD"/out/cache:/app/cache \
 	  -v "$$PWD"/run_from_debian.sh:/app/do:ro \
-	  debian:9-slim /app/do
+	  python:2.7-wheezy /app/do
 
 /tmp/apt out/legi.py.git out/Archeo-Lex.git out/tarballs out/db out/textes out/cache:
 	mkdir -p $@

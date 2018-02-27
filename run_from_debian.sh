@@ -13,32 +13,37 @@ textes="${TEXTES:-/app/textes}"
 cache="${CACHE:-/app/cache}"
 
 # Update and install some packages
-apt update && apt upgrade -y
-apt install -y \
-    libarchive13 \
-    python-pip \
-    git \
-    sqlite3 \
-    python2.7-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    python-setuptools \
-    python-wheel
+apt-get update && apt-get upgrade -y
+apt-get install -y \
+        libarchive13 \
+        python-pip \
+        wget \
+        ca-certificates \
+        git \
+        sqlite3 \
+        libxml2-dev \
+        libxslt1-dev \
+        python-setuptools \
+        python-wheel
 
 # Copy code for legi.py and Archeo Lex
 if ! [ -d "$code_legipy/.git" ]; then
     git clone https://github.com/Legilibre/legi.py.git "$code_legipy"
+    ( cd "$code_legipy"
+      git checkout "$ref_legipy"
+    )
 fi
 ( cd "$code_legipy"
-  git checkout "$ref_legipy"
   pip install -r requirements.txt
 )
 
 if ! [ -d "$code_archeolex/.git" ]; then
     git clone https://github.com/Legilibre/Archeo-Lex.git "$code_archeolex"
+    ( cd "$code_archeolex"
+      git checkout "$ref_archeolex"
+    )
 fi
 ( cd "$code_archeolex"
-  git checkout "$ref_archeolex"
   pip install -r requirements.txt
 )
 
